@@ -17,8 +17,6 @@ namespace RosSharp.RosBridgeClient
         public TextMesh zCoord;
         public TextMesh timestamp;
         public TextMesh nanoseconds;
-        public ControllerCoordinates teste;
-        public GameObject manager;
 
         // Start is called before the first frame update
         void Start()
@@ -26,8 +24,6 @@ namespace RosSharp.RosBridgeClient
             base.Start();
             message = new Messages.Geometry.PoseStamped();
             i = 0;
-
-            teste = manager.GetComponent<ControllerCoordinates>();
         }
 
         private void Update()
@@ -39,7 +35,6 @@ namespace RosSharp.RosBridgeClient
                 message.pose.position.x = float.Parse(xCoord.text);
                 message.pose.position.y = float.Parse(yCoord.text);
                 message.pose.position.z = float.Parse(zCoord.text);
-                Debug.Log(teste.zCoord.ToString());
                 message.header.seq = i;
                 message.header.frame_id = "world";
                 //message.pose.orientation.x = 0;
