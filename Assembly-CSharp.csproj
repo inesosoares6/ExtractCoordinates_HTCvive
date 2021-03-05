@@ -55,10 +55,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\ControllerCoordinates.cs" />
-     <Compile Include="Assets\DebugText.cs" />
-     <Compile Include="Assets\PositionPublisher.cs" />
-     <Compile Include="Assets\QuitApp.cs" />
      <Compile Include="Assets\RosSharp\Scripts\Extensions\StandardHeaderExtensions.cs" />
      <Compile Include="Assets\RosSharp\Scripts\Extensions\TransformExtensions.cs" />
      <Compile Include="Assets\RosSharp\Scripts\RosBridgeClient\MessageGeneration\ActionMessageGenerator.cs" />
@@ -125,7 +121,11 @@
      <Compile Include="Assets\RosSharp\Scripts\Urdf\UrdfComponents\UrdfRobot.cs" />
      <Compile Include="Assets\RosSharp\Scripts\Urdf\UrdfComponents\UrdfVisual.cs" />
      <Compile Include="Assets\RosSharp\Scripts\Urdf\UrdfComponents\UrdfVisuals.cs" />
-     <Compile Include="Assets\SetReferential.cs" />
+     <Compile Include="Assets\Scripts\ControllerCoordinates.cs" />
+     <Compile Include="Assets\Scripts\DebugText.cs" />
+     <Compile Include="Assets\Scripts\PositionPublisher.cs" />
+     <Compile Include="Assets\Scripts\QuitApp.cs" />
+     <Compile Include="Assets\Scripts\SetReferential.cs" />
      <Compile Include="Assets\UnityMainThreadDispatcher.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />

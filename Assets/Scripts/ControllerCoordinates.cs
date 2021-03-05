@@ -44,9 +44,9 @@ public class ControllerCoordinates : MonoBehaviour
     {
         Vector3 distance = position - origin.position;
         Vector3 relativePosition2 = Vector3.zero;
-        relativePosition2.x = - Vector3.Dot(distance, origin.right.normalized);
+        relativePosition2.x = Vector3.Dot(distance, origin.right.normalized);
         relativePosition2.y = Vector3.Dot(distance, origin.up.normalized);
-        relativePosition2.z = Vector3.Dot(distance, origin.forward.normalized);
+        relativePosition2.z = - Vector3.Dot(distance, origin.forward.normalized);
 
         return relativePosition2;
     }
