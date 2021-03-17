@@ -9,7 +9,7 @@ using System;
 public class SetReferential : MonoBehaviour
 {
     public GameObject cube;
-    GameObject rightController;
+    public GameObject sphere;
     private int _count;
     private Vector3 origin;
     private Vector3 coordXaxis;
@@ -45,84 +45,79 @@ public class SetReferential : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rightController = GameObject.Find("Right_Right OpenVR Controller");
-
-        if (rightController)
+        switch (CurrentCount)
         {
-            switch (CurrentCount)
-            {
-                // Define referetial origin
-                case 1:
-                    if (buttonConfirm)
+            // Define referetial origin
+            case 1:
+                if (buttonConfirm)
+                {
+                    timer += Time.deltaTime;
+                    if (timer > 5.0f)
                     {
-                        timer += Time.deltaTime;
-                        if (timer > 5.0f)
-                        {
-                            origin = rightController.transform.position;
-                            Debug.Log("origin:" + origin + " count:" + CurrentCount);
-                            CurrentCount++;
-                            timer = 0.0f;
-                            buttonConfirm = false;
-                        }
-                    }
-                    break;
-
-                // Define point in X axis
-                case 2:
-                    if (buttonConfirm)
-                    {
-                        timer += Time.deltaTime;
-                        if (timer > 5.0f)
-                        {
-                            coordXaxis = rightController.transform.position;
-                            Debug.Log("coordXaxis:" + coordXaxis + " count:" + CurrentCount);
-                            CurrentCount++;
-                            timer = 0.0f;
-                            buttonConfirm = false;
-                        }
-                    }
-                    break;
-
-                // Define point in Y axis
-                case 3:
-                    if (buttonConfirm)
-                    {
-                        timer += Time.deltaTime;
-                        if (timer > 5.0f)
-                        {
-                            coordZaxis = rightController.transform.position;
-                            Debug.Log("coordZaxis:" + coordZaxis + " count:" + CurrentCount);
-                            CurrentCount++;
-                            timer = 0.0f;
-                            buttonConfirm = false;
-                        }
-                    }
-                    break;
-
-                // Define cube's orientation
-                case 4:
-                    if (buttonConfirm)
-                    {
-                        CurrentCount = 0;
+                        origin = sphere.transform.position;
+                        Debug.Log("origin:" + origin + " count:" + CurrentCount);
+                        CurrentCount++;
+                        timer = 0.0f;
                         buttonConfirm = false;
-
-                        // define referential origin (coordinations for the cube)
-                        cube.transform.position = new Vector3(origin.x, origin.y, origin.z);
-
-                        // calculate orientation
-                        lookPosition.x = coordZaxis.x;
-                        lookPosition.z = coordZaxis.z;
-                        lookPosition.y = (coordXaxis.y + coordZaxis.y) / 2;
-
-                        // set referential orientation
-                        lookVector = cube.transform.position - lookPosition;
-                        lookRotation = Quaternion.LookRotation(lookVector, Vector3.up);
-                        cube.transform.rotation = lookRotation;
-
-                        Debug.Log("Referential set\n");
                     }
-                    break;
-            }
+                }
+                break;
+
+            // Define point in X axis
+            case 2:
+                if (buttonConfirm)
+                {
+                    timer += Time.deltaTime;
+                    if (timer > 5.0f)
+                    {
+                        coordXaxis = sphere.transform.position;
+                        Debug.Log("coordXaxis:" + coordXaxis + " count:" + CurrentCount);
+                        CurrentCount++;
+                        timer = 0.0f;
+                        buttonConfirm = false;
+                    }
+                }
+                break;
+
+            // Define point in Y axis
+            case 3:
+                if (buttonConfirm)
+                {
+                    timer += Time.deltaTime;
+                    if (timer > 5.0f)
+                    {
+                        coordZaxis = sphere.transform.position;
+                        Debug.Log("coordZaxis:" + coordZaxis + " count:" + CurrentCount);
+                        CurrentCount++;
+                        timer = 0.0f;
+                        buttonConfirm = false;
+                    }
+                }
+                break;
+
+            // Define cube's orientation
+            case 4:
+                if (buttonConfirm)
+                {
+                    CurrentCount = 0;
+                    buttonConfirm = false;
+
+                    // define referential origin (coordinations for the cube)
+                    cube.transform.position = new Vector3(origin.x, origin.y, origin.z);
+
+                    // calculate orientation
+                    lookPosition.x = coordZaxis.x;
+                    lookPosition.z = coordZaxis.z;
+                    lookPosition.y = (coordXaxis.y + coordZaxis.y) / 2;
+
+                    // set referential orientation
+                    lookVector = cube.transform.position - lookPosition;
+                    lookRotation = Quaternion.LookRotation(lookVector, Vector3.up);
+                    cube.transform.rotation = lookRotation;
+
+                    Debug.Log("Referential set\n");
+                }
+                break;
         }
     }
 

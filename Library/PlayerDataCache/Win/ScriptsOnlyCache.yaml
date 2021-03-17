@@ -27,6 +27,8 @@ ScriptsOnlyBuild:
     - Microsoft.MixedReality.Toolkit.Input.TouchPointer
     - Microsoft.MixedReality.Toolkit.Teleport.ParabolicTeleportPointer
     - Microsoft.MixedReality.Toolkit.Teleport.TeleportCursor
+    - Microsoft.MixedReality.Toolkit.Utilities.Solvers.Orbital
+    - Microsoft.MixedReality.Toolkit.Utilities.Solvers.SolverHandler
     Microsoft.MixedReality.Toolkit.Services.InputAnimation.dll:
     - Microsoft.MixedReality.Toolkit.Input.MixedRealityInputRecordingProfile
     Microsoft.MixedReality.Toolkit.Services.InputSimulation.dll:
@@ -180,6 +182,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12494}
     - Class: 114
+      Script: {instanceID: 12498}
+    - Class: 114
       Script: {instanceID: 12552}
     - Class: 114
       Script: {instanceID: 12616}
@@ -240,6 +244,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14716}
     - Class: 114
+      Script: {instanceID: 14932}
+    - Class: 114
       Script: {instanceID: 14936}
     - Class: 114
       Script: {instanceID: 14954}
@@ -262,6 +268,8 @@ ScriptsOnlyBuild:
     - Class: 120
       Script: {instanceID: 0}
     - Class: 128
+      Script: {instanceID: 0}
+    - Class: 135
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
@@ -788,7 +796,7 @@ ScriptsOnlyBuild:
     className: Timer
   - hash:
       serializedVersion: 2
-      Hash: a366b8e3384e3c5509b46c3b7a2450b3
+      Hash: ab99bec32b581d65b47f550c9a3b5e05
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SetReferential
@@ -1346,7 +1354,7 @@ ScriptsOnlyBuild:
     className: MixedRealityControllerVisualizer
   - hash:
       serializedVersion: 2
-      Hash: fb513a52ea7166fb9bbf4d4d889770f2
+      Hash: 06e429e792cc61ff13ac108c44c8a23c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ControllerCoordinates
